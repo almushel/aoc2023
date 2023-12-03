@@ -2,54 +2,49 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"log"
 	"os"
-	"strings"
+
+	"github.com/almushel/aoc2023/utility"
 )
 
-func runesToInt(runes ...rune) (value int, err error) {
-	for i, r := range runes {
-		if r < '0' || r > '9' {
-			return 0, errors.New("Non-numeric rune " + string(r))
+func solvePart1(input string) (result int) {
+	var first, last rune
+
+	for _, c := range input {
+		if c >= '0' && c <= '9' {
+			if first == '\000' {
+				first = rune(c)
+			}
+			last = rune(c)
+		} else if c == '\n' {
+			val, _ := utility.RunesToInt(first, last)
+			result += int(val)
+			first, last = '\000', '\000'
 		}
-		digit := int(r - '0')
-		for t := 1; t < (len(runes) - i); t++ {
-			digit *= 10
-		}
-		value += digit
 	}
-	return value, nil
+	val, _ := utility.RunesToInt(first, last)
+
+	result += val
+	return
 }
 
-func stringToInt(str string) (int, error) {
-	return runesToInt([]rune(str)...)
-}
-
-func main() {
+func solvePart2(input string) (result int) {
 	var digitWords []string = []string{
 		"one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
 	}
 
-	buffer, err := os.ReadFile("data/day1_input.txt")
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fileStr := string(buffer)
-
 	var first, last rune
-	var sum int = 0
 
-	for i, c := range fileStr {
+	for i, c := range input {
 		found := false
 		for num, word := range digitWords {
-			if strings.IndexRune(word, c) != 0 {
+			if word[0] != byte(c) {
 				continue
 			}
 
-			cword := fileStr[i:min(i+len(word), len(fileStr))]
+			cword := input[i:min(i+len(word), len(input))]
 			if cword == word {
 				if first == '\000' {
 					first = '0' + rune(num+1)
@@ -69,13 +64,27 @@ func main() {
 			}
 			last = rune(c)
 		} else if c == '\n' {
-			val, _ := runesToInt(first, last)
-			sum += int(val)
+			val, _ := utility.RunesToInt(first, last)
+			result += int(val)
 			first, last = '\000', '\000'
 		}
 	}
-	val, _ := runesToInt(first, last)
-	sum += val
+	val, _ := utility.RunesToInt(first, last)
 
-	fmt.Println(sum)
+	result += val
+	return
+}
+
+func main() {
+
+	buffer, err := os.ReadFile("data/day1_input.txt")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fileStr := string(buffer)
+	part1Result := solvePart1(fileStr)
+	part2Result := solvePart2(fileStr)
+
+	fmt.Println("Part 1: ", part1Result)
+	fmt.Println("Part 2: ", part2Result)
 }
