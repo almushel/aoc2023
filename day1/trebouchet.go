@@ -13,7 +13,7 @@ func solvePart1(input string) (result int) {
 	var first, last rune
 
 	for _, c := range input {
-		if c >= '0' && c <= '9' {
+		if utility.IsNumeric(c) {
 			if first == '\000' {
 				first = rune(c)
 			}
@@ -58,7 +58,7 @@ func solvePart2(input string) (result int) {
 			continue
 		}
 
-		if c >= '0' && c <= '9' {
+		if utility.IsNumeric(c) {
 			if first == '\000' {
 				first = rune(c)
 			}
