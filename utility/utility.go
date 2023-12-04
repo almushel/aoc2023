@@ -3,6 +3,7 @@ package utility
 import (
 	"cmp"
 	"errors"
+	"strings"
 )
 
 func Clamp[T cmp.Ordered](val T, low T, high T) T {
@@ -31,5 +32,5 @@ func RunesToInt(runes ...rune) (value int, err error) {
 }
 
 func StringToInt(str string) (int, error) {
-	return RunesToInt([]rune(str)...)
+	return RunesToInt([]rune(strings.TrimSpace(str))...)
 }
