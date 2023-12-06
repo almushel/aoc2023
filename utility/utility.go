@@ -6,6 +6,11 @@ import (
 	"strings"
 )
 
+const (
+	UINT_MAX = ^uint(0)
+	INT_MAX  = int(UINT_MAX >> 1)
+)
+
 func Clamp[T cmp.Ordered](val T, low T, high T) T {
 	return min(max(val, low), high)
 }
