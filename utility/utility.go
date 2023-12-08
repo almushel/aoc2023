@@ -4,6 +4,7 @@ import (
 	"cmp"
 	"errors"
 	"strings"
+	"testing"
 )
 
 const (
@@ -38,4 +39,11 @@ func RunesToInt(runes ...rune) (value int, err error) {
 
 func StringToInt(str string) (int, error) {
 	return RunesToInt([]rune(strings.TrimSpace(str))...)
+}
+
+func PuzzleTest(t *testing.T, input string, want int, solve func(string) int) {
+	result := solve(input)
+	if result != want {
+		t.Fatalf("result = %d, want: %d),", result, want)
+	}
 }
