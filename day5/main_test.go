@@ -4,7 +4,6 @@ import (
 	"os"
 	"testing"
 
-	"github.com/almushel/aoc2023/day5/fertilizer"
 	"github.com/almushel/aoc2023/utility"
 )
 
@@ -21,12 +20,12 @@ seed-to-soil map:
 50 98 2
 52 50 48
 
-soil-to-fertilizer map:
+soil-to-map:
 0 15 37
 37 52 2
 39 0 15
 
-fertilizer-to-water map:
+to-water map:
 49 53 8
 0 11 42
 42 0 7
@@ -64,20 +63,20 @@ func init() {
 		return
 	}
 	str := string(buffer)
-	input.seeds, input.almanac = fertilizer.ParseAlmanac(str)
-	testInput.seeds, testInput.almanac = fertilizer.ParseAlmanac(testStr)
+	input.seeds, input.almanac = ParseAlmanac(str)
+	testInput.seeds, testInput.almanac = ParseAlmanac(testStr)
 }
 
 func TestPart1Example(t *testing.T) {
-	utility.PuzzleTest(t, "", exampleSolution1, func(string) int { return fertilizer.SolvePart1(testInput.seeds, testInput.almanac) })
+	utility.PuzzleTest(t, "", exampleSolution1, func(string) int { return SolvePart1(testInput.seeds, testInput.almanac) })
 }
 
 func TestPart2Example(t *testing.T) {
-	utility.PuzzleTest(t, "", exampleSolution2, func(string) int { return fertilizer.PoorlySolvePart2(testInput.seeds, testInput.almanac) })
+	utility.PuzzleTest(t, "", exampleSolution2, func(string) int { return PoorlySolvePart2(testInput.seeds, testInput.almanac) })
 }
 
 func TestPart1(t *testing.T) {
-	utility.PuzzleTest(t, "", part1Solution, func(string) int { return fertilizer.SolvePart1(input.seeds, input.almanac) })
+	utility.PuzzleTest(t, "", part1Solution, func(string) int { return SolvePart1(input.seeds, input.almanac) })
 }
 
 /*

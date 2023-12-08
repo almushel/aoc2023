@@ -6,7 +6,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/almushel/aoc2023/day4/scratchcards"
 	"github.com/almushel/aoc2023/utility"
 )
 
@@ -23,18 +22,18 @@ func init() {
 		log.Fatalln(err.Error())
 	}
 	str := strings.TrimSpace(string(buffer))
-	cards = scratchcards.ParseCards(str)
+	cards = ParseCards(str)
 }
 
 func TestSolvePart1(t *testing.T) {
-	utility.PuzzleTest(t, "", part1Solution, func(string) int { return scratchcards.SolvePart1(cards) })
+	utility.PuzzleTest(t, "", part1Solution, func(string) int { return SolvePart1(cards) })
 }
 
 func TestPart2RecursionList(t *testing.T) {
 	solve := func(string) int {
 		var newCards []int
 		for c, _ := range cards {
-			scratchcards.Part2ProcessR(cards, c, &newCards)
+			Part2ProcessR(cards, c, &newCards)
 		}
 		return len(newCards)
 	}
@@ -44,7 +43,7 @@ func TestPart2RecursionList(t *testing.T) {
 func TestPart2Recursion(t *testing.T) {
 	solve := func(string) (result int) {
 		for c, _ := range cards {
-			result += scratchcards.Part2ProcessR2(cards, c)
+			result += Part2ProcessR2(cards, c)
 		}
 		return
 	}
@@ -54,7 +53,7 @@ func TestPart2Recursion(t *testing.T) {
 func TestPart2Queue(t *testing.T) {
 	solve := func(string) (result int) {
 		for c, _ := range cards {
-			result += scratchcards.Part2ProcessQueue(cards, c)
+			result += Part2ProcessQueue(cards, c)
 		}
 		return
 	}

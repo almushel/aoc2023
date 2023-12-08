@@ -3,7 +3,6 @@ package main
 import (
 	"testing"
 
-	"github.com/almushel/aoc2023/day6/boatrace"
 	"github.com/almushel/aoc2023/utility"
 )
 
@@ -21,17 +20,17 @@ var input string = `Time:        47     70     75     66
 Distance:   282   1079   1147   1062`
 
 func TestPart1Example(t *testing.T) {
-	utility.PuzzleTest(t, exampleInput, exampleSolution1, boatrace.SolvePart1)
+	utility.PuzzleTest(t, exampleInput, exampleSolution1, SolvePart1)
 }
 
 func TestPart2Example(t *testing.T) {
-	utility.PuzzleTest(t, exampleInput, exampleSolution2, boatrace.SolvePart2)
+	utility.PuzzleTest(t, exampleInput, exampleSolution2, SolvePart2)
 }
 
 func TestPart1(t *testing.T) {
-	utility.PuzzleTest(t, input, part1Solution, boatrace.SolvePart1)
+	utility.PuzzleTest(t, input, part1Solution, SolvePart1)
 }
 
 func TestPart2(t *testing.T) {
-	utility.PuzzleTest(t, input, part2Solution, boatrace.SolvePart2)
+	utility.PuzzleTest(t, input, part2Solution, SolvePart2)
 }
