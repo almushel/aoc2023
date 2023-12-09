@@ -7,5 +7,6 @@ use ./day4
 use ./day5
 use ./day6
 use ./day7
+use ./day8
 
 replace github.com/almushel/aoc2023/utility => ./utility
