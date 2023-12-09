@@ -9,13 +9,7 @@ import (
 )
 
 const (
-	exampleSolution1 = 2
-	exampleSolution2 = 6
-	part1Solution    = 19951
-	part2Solution    = 16342438708751
-)
-
-var testInput1 string = `RL
+	testInput1 = `RL
 
 AAA = (BBB, CCC)
 BBB = (DDD, EEE)
@@ -25,7 +19,7 @@ EEE = (EEE, EEE)
 GGG = (GGG, GGG)
 ZZZ = (ZZZ, ZZZ)`
 
-var testInput2 string = `LR
+	testInput2 = `LR
 
 11A = (11B, XXX)
 11B = (XXX, 11Z)
@@ -35,6 +29,11 @@ var testInput2 string = `LR
 22C = (22Z, 22Z)
 22Z = (22B, 22B)
 XXX = (XXX, XXX)`
+	exampleSolution1 = 2
+	exampleSolution2 = 6
+	part1Solution    = 19951
+	part2Solution    = 16342438708751
+)
 
 var input string
 

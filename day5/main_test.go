@@ -8,13 +8,7 @@ import (
 )
 
 const (
-	exampleSolution1 = 35
-	exampleSolution2 = 46
-	part1Solution    = 379811651
-	part2Solution    = 27992443
-)
-
-var testStr string = `seeds: 79 14 55 13
+	testStr = `seeds: 79 14 55 13
 
 seed-to-soil map:
 50 98 2
@@ -47,6 +41,11 @@ temperature-to-humidity map:
 humidity-to-location map:
 60 56 37
 56 93 4`
+	exampleSolution1 = 35
+	exampleSolution2 = 46
+	part1Solution    = 379811651
+	part2Solution    = 27992443
+)
 
 type puzzleInput struct {
 	seeds   []int

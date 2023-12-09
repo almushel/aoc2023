@@ -127,8 +127,8 @@ func SolvePart2(input string) (result int) {
 		}
 	}
 	result = 1
-	commonFactors := getUniqueFactors(paths)
-	for _, factor := range commonFactors {
+	factors := getUniqueFactors(paths)
+	for _, factor := range factors {
 		result *= factor
 	}
 	return

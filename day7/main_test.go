@@ -9,17 +9,16 @@ import (
 )
 
 const (
+	testInput = `32T3K 765
+T55J5 684
+KK677 28
+KTJJT 220
+QQQJA 483`
 	exampleSolution1 = 6440
 	exampleSolution2 = 5905
 	part1Solution    = 253205868
 	part2Solution    = 253907829
 )
-
-var testInput string = `32T3K 765
-T55J5 684
-KK677 28
-KTJJT 220
-QQQJA 483`
 
 var input string
 
