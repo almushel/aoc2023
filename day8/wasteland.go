@@ -65,7 +65,7 @@ func getPrimeFactors(num int) []int {
 	return result
 }
 
-func getUniqueFactors(nums []int) (commonFactors []int) {
+func getUniqueFactors(nums []int) (uniqueFactors []int) {
 	factors := make([][]int, len(nums))
 	maxFactors := 0
 	for i, _ := range factors {
@@ -87,7 +87,7 @@ func getUniqueFactors(nums []int) (commonFactors []int) {
 				found = append(found, checkFactor)
 			}
 		}
-		commonFactors = append(commonFactors, found...)
+		uniqueFactors = append(uniqueFactors, found...)
 	}
 	return
 }

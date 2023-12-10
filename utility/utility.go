@@ -38,7 +38,13 @@ func RunesToInt(runes ...rune) (value int, err error) {
 }
 
 func StringToInt(str string) (int, error) {
-	return RunesToInt([]rune(strings.TrimSpace(str))...)
+	sign := 1
+	if str[0] == '-' {
+		sign = -1
+		str = str[1:]
+	}
+	result, err := RunesToInt([]rune(strings.TrimSpace(str))...)
+	return sign * result, err
 }
 
 func PuzzleTest(t *testing.T, input string, want int, solve func(string) int) {
