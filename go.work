@@ -10,6 +10,7 @@ use (
 	./day7
 	./day8
 	./day9
+	./day10
 )
 
 replace github.com/almushel/aoc2023/utility => ./utility
